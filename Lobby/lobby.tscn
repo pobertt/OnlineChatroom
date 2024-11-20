@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci2wkxup6wgp6"]
+
+[ext_resource type="Script" path="res://Lobby/lobby.gd" id="1_7sw0p"]
+
+[node name="Lobby" type="CanvasLayer"]
+script = ExtResource("1_7sw0p")
+
+[node name="vbxLobbyContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.5
+offset_top = -42.5
+offset_right = 18.5
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="hbxNameContainer" type="HBoxContainer" parent="vbxLobbyContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="lblName" type="Label" parent="vbxLobbyContainer/hbxNameContainer"]
+layout_mode = 2
+text = "Name"
+
+[node name="txtName" type="TextEdit" parent="vbxLobbyContainer/hbxNameContainer"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+text = "Test
+"
+placeholder_text = "Test"
+
+[node name="hbxIPContainer" type="HBoxContainer" parent="vbxLobbyContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="lblIP" type="Label" parent="vbxLobbyContainer/hbxIPContainer"]
+custom_minimum_size = Vector2(37, 0)
+layout_mode = 2
+text = "IP"
+
+[node name="txtIP" type="TextEdit" parent="vbxLobbyContainer/hbxIPContainer"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+text = "127.0.0.1
+"
+placeholder_text = "127.0.0.1"
+
+[node name="hbxIPContainer2" type="HBoxContainer" parent="vbxLobbyContainer"]
+layout_mode = 2
+
+[node name="lblColors" type="Label" parent="vbxLobbyContainer/hbxIPContainer2"]
+layout_mode = 2
+text = "Color
+"
+
+[node name="optColors" type="OptionButton" parent="vbxLobbyContainer/hbxIPContainer2"]
+layout_mode = 2
+
+[node name="btnHost" type="Button" parent="vbxLobbyContainer"]
+layout_mode = 2
+text = "HOST
+"
+
+[node name="btnJoin" type="Button" parent="vbxLobbyContainer"]
+layout_mode = 2
+text = "JOIN"
+
+[node name="hbxStatusContainer" type="HBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -60.0
+offset_right = 147.0
+offset_bottom = -20.0
+grow_vertical = 0
+
+[node name="lblStateText" type="Label" parent="hbxStatusContainer"]
+layout_mode = 2
+text = "Status:
+"
+
+[node name="lblStatus" type="Label" parent="hbxStatusContainer"]
+layout_mode = 2
+text = "Waiting
+"
+
+[connection signal="item_selected" from="vbxLobbyContainer/hbxIPContainer2/optColors" to="." method="_on_opt_colors_item_selected"]
+[connection signal="pressed" from="vbxLobbyContainer/btnHost" to="." method="_on_btn_host_pressed"]
+[connection signal="pressed" from="vbxLobbyContainer/btnJoin" to="." method="_on_btn_join_pressed"]
