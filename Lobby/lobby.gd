@@ -32,7 +32,6 @@ func connected_fail():
 func _on_opt_colors_item_selected(index: int) -> void:
 	Network.user_color = colors.text
 
-
 func _on_btn_host_pressed() -> void:
 	Network.create_server()
 	status.text = "Hosting"
